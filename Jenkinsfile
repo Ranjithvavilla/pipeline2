@@ -1,12 +1,12 @@
 pipeline {
   agent any
   tools {
-    maven 'MAVEN_HOME' 
+    maven 'M2_HOME' 
   }
   stages {
     stage ('Build') {
       steps {
-        bat 'mvn clean package'
+         bat 'mvn clean package'
       }
     }
     stage ('Deploy') {
