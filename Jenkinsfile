@@ -3,7 +3,17 @@ pipeline {
   tools {
     maven 'M2_HOME' 
   }
-  stages {
+  stages{
+    stage ('UNIT testing') {
+      steps{
+        sh 'mvn test'
+      }
+    }
+     stage ('integration testing') {
+      steps{
+        sh 'mvn verify -DskipUnitTests'
+      }
+    }
     stage ('Build') {
       steps {
         bat 'mvn clean package'
